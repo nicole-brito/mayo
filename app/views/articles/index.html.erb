@@ -13,3 +13,15 @@
 </ul>
 
 <%= link_to "New Article", new_article_path %>
+
+<% if current_user %> 
+  <ul> 
+    <li><%= current_user.first_name %></li> 
+    <li><%= button_to "Log out", logout_path, method: "delete", class: 'btn btn-small' %></li> 
+  </ul> 
+<% else %> 
+  <ul> 
+    <li><%= link_to "Login", 'login' %></a></li> 
+    <li><%= link_to "Signup", 'signup' %></a></li> 
+  </ul> 
+<% end %> 
