@@ -10,25 +10,25 @@
     </div>
 </nav>
 
+<%= link_to "New Article", new_article_path %>
+
 <h1>Articles</h1>
 
 <h2>Our blog has <%= Article.public_count %> articles and counting!</h2>
 
-<ul class="card">
-  <% @articles.each do |article| %>
-    <% unless article.archived? %>
-            <li>
-                <%= link_to article.title, article %>
-                <p><%= article.body.split("\n").first %></p>
-                <p><%= article.user.first_name %> <%= article.user.last_name %></p>
-                <p><%= article.created_at.strftime("%B %d, %Y") %></p>
-                <% end %>
-            </li>
-        <% end %>
 
-</ul>
+<% @articles.each do |article| %>
+  <% unless article.archived? %>
+    <ul class="card">
+      <li>
+        <%= link_to article.title, article %>
+        <p><%= article.body.split("\n").first %></p>
+        <p><%= article.user.first_name %> <%= article.user.last_name %></p>
+        <p><%= article.created_at.strftime("%B %d, %Y") %></p>
+  <% end %>
+  </li>
+  </ul>
 
-<%= link_to "New Article", new_article_path %>
+<% end %>
 
-
-
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
