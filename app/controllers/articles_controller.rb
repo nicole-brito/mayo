@@ -1,8 +1,11 @@
 class ArticlesController < ApplicationController
   ##before_action :require_user, only: [:index, :show]
+  before_action :require_user, only: [:new, :create]
+  before_action :require_owner, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.all
+    @articles = Article.order(:created_at => :desc)
+    @pagy, @articles = pagy(@articles, items: 3)
   end
 
   def show
@@ -42,6 +45,13 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     redirect_to root_path, status: :see_other
+  end
+
+  def require_owner
+    @article = Article.find(params[:id])
+    unless @article.user == current_user
+      redirect_to root_path, alert: "You can only edit or delete your own articles."
+    end
   end
   
   private
