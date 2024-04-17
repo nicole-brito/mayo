@@ -2,6 +2,6 @@
   Article.create(
     title: FFaker::LoremBR.sentence,
     body: FFaker::LoremBR.paragraphs.join("\n"),
-    status: "public"
+    user_id: 1
   )
 end

@@ -1,5 +1,78 @@
-<%= form_for(:session, url: login_path) do |f| %> 
-  <%= f.email_field :email, :placeholder => "Email" %> 
-  <%= f.password_field :password, :placeholder => "Password" %> 
-  <%= f.submit "Login", class: "primary-button" %>
-<% end %>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="<%= root_path %>">
+      Home
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+            <%= link_to "Sign Up", 'signup', class: 'button is-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container.is-max-widescreen">
+
+
+  <section class="section is-medium">
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+          <h1>Login</h1>
+
+          <%= form_for(:session, url: login_path) do |f| %>
+
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control has-icons-left">
+                <%= f.email_field :email, :placeholder => "Email", class: "input" %>
+                <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control has-icons-left">
+                <%= f.password_field :password, :placeholder => "Password", class: "input" %>
+                <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+              </div>
+
+              <br>
+
+              <div class="field">
+                <%= f.submit "Login", class: "button is-primary" %>
+              </div>
+          <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p> Made with 💖 by <strong>Nicole Brito</strong>, with Rails and Bulma
+    </p>
+    <p>
+      <a href="https://www.linkedin.com/in/nicole-brito/" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a> <br>
+      <a href="https://github.com/nicole-brito" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://twitter.com/nicole_brito" target="_blank">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+    </p>
+  </div>
+</footer>

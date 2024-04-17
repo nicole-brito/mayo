@@ -1,32 +1,42 @@
-<nav class="navbar">
-        <h1><%= link_to 'Mayo', root_path %></h1>
-        <% if current_user %> 
-            Hello, <%= current_user.first_name %>!
-            <%= button_to "Log out", logout_path, method: "delete", class: 'primary-button' %></p>
-        <% else %> 
-                <%= link_to "Login", 'login', class: 'primary-button' %></a>
-                <%= link_to "Signup", 'signup', class: 'primary-button' %></a>
-        <% end %> 
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="<%= root_path %>">
+      Home
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if current_user %>
+            <%= button_to "Log out", logout_path, method: "delete", class: 'button is-primary' %>
+          <% else %>
+            <%= link_to "Login", 'login', class: 'button is-primary' %>
+          <% end %>
+        </div>
+      </div>
     </div>
+  </div>
 </nav>
+
+
 
 <%= link_to "New Article", new_article_path %>
 
 <h1>Articles</h1>
 
-<h2>Our blog has <%= Article.public_count %> articles and counting!</h2>
+<h2>Our blog has <%= Article.count %> articles and counting!</h2>
 
 
 <% @articles.each do |article| %>
-  <% unless article.archived? %>
-    <ul class="card">
-      <li>
-        <%= link_to article.title, article %>
-        <p><%= article.body.split("\n").first %></p>
-        <p><%= article.user.first_name %> <%= article.user.last_name %></p>
-        <p><%= article.created_at.strftime("%B %d, %Y") %></p>
-  <% end %>
-  </li>
+  <ul class="card">
+    <li>
+      <%= link_to article.title, article %>
+      <p><%= article.body.split("\n").first %></p>
+      <p><%= article.user.first_name %> <%= article.user.last_name %></p>
+      <p><%= article.created_at.strftime("%B %d, %Y") %></p>
+    </li>
   </ul>
 
 <% end %>
