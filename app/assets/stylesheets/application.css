@@ -13,3 +13,67 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
+
+body {
+    background-color: #EEEBFF;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+
+.card { 
+    border-radius: 16px;
+    background-color: #fff;
+    margin: 0 auto; /* Center the card horizontally */
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+    padding: 4px 16px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    margin-right: auto;
+}
+
+.navbar a:hover {
+    color: #666;
+}
+
+.navbar button {
+    background-color: #302186;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navbar button:hover {
+    background-color: #4A3FC7;
+}
+
+.primary-button {
+    background-color: #302186;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
