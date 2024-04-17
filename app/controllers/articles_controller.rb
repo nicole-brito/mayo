@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :require_user, only: [:index, :show]
+  ##before_action :require_user, only: [:index, :show]
 
   def index
     @articles = Article.all
@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.create(article_params)
 
     if @article.save
       redirect_to @article
