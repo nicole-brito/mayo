@@ -1,54 +1,80 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="<%= root_path %>">
+      Home
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if current_user %>
+            <%= button_to "Log out", logout_path, method: "delete", class: 'button is-primary' %>
+          <% else %>
+            <%= link_to "Login", 'login', class: 'button is-primary' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container.is-max-widescreen">
+
+
+  <section class="section is-medium">
+
+
+
 <%= form_with model: article do |form| %>
   <div class="card">
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <div class="field">
+      <label class="label">Title</label>
+      <div class="control has-icons-left">
+    <%= form.text_field :title, class:"input" %>
     <% article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
-  </div>
-
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-    <% article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div class="card">
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-<%= form_with model: article do |form| %>
-  <div class="field">
-    <label class="label">Title</label>
-    <div class="control has-icons-left">
-      <%= form.text_field :title, :placeholder => "Title", class: "input" %>
-      <span class="icon is-small is-left">
+        <span class="icon is-small is-left">
         <i class="fas fa-heading"></i>
       </span>
-    </div>
-    <% if article.errors[:title].any? %>
-      <p class="help is-danger"><%= article.errors[:title].join(", ") %></p>
-    <% end %>
-  </div>
+      </div>
+<br>
 
-  <div class="field">
-    <label class="label">Body</label>
-    <div class="control has-icons-left">
-      <%= form.text_area :body, :placeholder => "Body", class: "textarea" %>
-      <span class="icon is-small is-left">
-        <i class="fas fa-paragraph"></i>
-      </span>
-    </div>
+    <div class="field">
+      <label class="label">Body</label>
+      <div class="control has-icons-left">
+    <%= form.text_area :body, class: "textarea" %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= form.submit "Submit", class: "button is-primary" %>
-  </div>
+      <div class="field">
+        <%= form.submit "Post", class: "button is-primary" %>
+      </div>
+    </div>
 <% end %>
+</div>
+</div>
+</section>
+</div>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p> Made with 💖 by <strong>Nicole Brito</strong>, with Rails and Bulma
+    </p>
+    <p>
+      <a href="https://www.linkedin.com/in/nicole-brito/" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a> <br>
+      <a href="https://github.com/nicole-brito" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://twitter.com/nicole_brito" target="_blank">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+    </p>
+  </div>
+</footer>
 </div>

@@ -46,6 +46,8 @@ gem 'bootsnap', require: false
 
 gem 'pagy', '~> 8.2'
 
+gem 'bulma-rails'
+
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

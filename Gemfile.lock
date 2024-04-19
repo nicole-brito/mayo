@@ -84,6 +84,8 @@ GEM
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.2.4)
+    bulma-rails (1.0.0)
+      dartsass-rails (~> 0.5.0)
     capybara (3.40.0)
       addressable
       matrix
@@ -96,12 +98,19 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
+    dartsass-rails (0.5.0)
+      railties (>= 6.0.0)
+      sass-embedded (~> 1.63)
     date (3.3.4)
     drb (2.2.1)
     erubi (1.12.0)
     ffaker (2.23.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    google-protobuf (4.26.1-x64-mingw-ucrt)
+      rake (>= 13)
+    google-protobuf (4.26.1-x86_64-linux)
+      rake (>= 13)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -201,6 +210,10 @@ GEM
       io-console (~> 0.5)
     rexml (3.2.6)
     rubyzip (2.3.2)
+    sass-embedded (1.75.0-x64-mingw-ucrt)
+      google-protobuf (>= 3.25, < 5.0)
+    sass-embedded (1.75.0-x86_64-linux-gnu)
+      google-protobuf (>= 3.25, < 5.0)
     selenium-webdriver (4.19.0)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
@@ -247,6 +260,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
+  bulma-rails
   capybara
   ffaker
   importmap-rails
