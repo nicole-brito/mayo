@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.order(:created_at => :desc)
-    @pagy, @articles = pagy(@articles, items: 3)
+    @pagy, @articles = pagy(Article.all, items: 3)
   end
 
   def show
