@@ -6,11 +6,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:         'smtp.gmail.com',
-    port:            587,
+    address:         ENV['DEV_ADDRESS'],
+    port:            ENV['DEV_PORT'],
     domain:          'localhost',
-    user_name:       'nicolem.britto@gmail.com',
-    password:        'mazu mpab imao fmly',
+    user_name:       ENV['GMAIL_USERNAME'],
+    password:        ENV['GMAIL_PASSWORD'],
     authentication:  'plain',
     enable_starttls: true,
     open_timeout:    5,
