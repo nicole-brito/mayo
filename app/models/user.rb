@@ -28,4 +28,21 @@ class User < ApplicationRecord
     self.articles.update_all(user_id: inactive_user.id)
   end
 
+  def generate_password_token!
+    self.reset_password_token = SecureRandom.hex(10)
+    self.reset_password_sent_at = Time.now.utc
+    save!
+  end
+
+  def password_token_valid?
+    (self.reset_password_sent_at + 4.hours) > Time.now.utc
+  end
+
+  def reset_password!(password)
+    self.password = password
+    self.reset_password_token = nil
+    self.reset_password_sent_at = nil
+    save!
+  end
+
 end

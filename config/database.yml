@@ -79,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: mayo_production
+  database: mayoproduction
  # username: mayo
  #password: <%= ENV["MAYO_DATABASE_PASSWORD"] %>
