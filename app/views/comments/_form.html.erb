@@ -17,8 +17,8 @@
       <%= form.hidden_field :commenter, value: "#{current_user.first_name} #{current_user.last_name}" %>
       <strong>Comment as <%= "#{current_user.first_name} #{current_user.last_name}" %></strong>
     <% else %>
-      <%= form.label :commenter %><br>
-      <%= form.text_field :commenter %>
+      <%= form.hidden_field :commenter, value: "Anonymous User" %>
+      <strong>Comment as <%= "Anonymous User" %></strong>
     <% end %>
   </p>
   <p>
@@ -27,4 +27,3 @@
   </p>
 
   <%= form.submit %>
-<% end %>

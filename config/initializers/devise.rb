@@ -9,15 +9,12 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
-
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '5e39988eb2e34531bef4abe10c9cd04a55a4cddb95308b1c09979209da1225f3bf641b9c5f238575e864de1ff3117620a36d8da73050b4cb805d32272c00768e'
+  # config.secret_key = '3516ca58b894756c23e69baaf4d926bd52f82324603f6369499149243fbad4424ab6e1bf0c80ff06a76dc0692caf8a7c431d5c163d4a14bb854671286dec6e05'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -129,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '23b621dab6c1222e10516fe1a8d7f31ebde3b0417c4142d2d4572502a71fd10dcc732004759d39f0bc9dbb2d22e895fd35294c8dbf6feaaf2d473d2b24721b9d'
+  # config.pepper = '65696856fef78205938dcb175345757d13821e94907ee888ad5706c19155e994e6af6075c3a8c6a9b3143fe30f37c85cf85f0e4acad32c3c191483ff51f6ac5d'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -197,7 +194,7 @@ Devise.setup do |config|
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
-   config.lock_strategy = :failed_attempts
+  # config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
   # config.unlock_keys = [:email]
@@ -211,10 +208,10 @@ Devise.setup do |config|
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.
-   config.maximum_attempts = 10
+  # config.maximum_attempts = 20
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
-   config.unlock_in = 1.hour
+  # config.unlock_in = 1.hour
 
   # Warn on the last attempt before the account is locked.
   # config.last_attempt_warning = true
@@ -266,8 +263,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html, :turbo_stream]
-
+   config.navigational_formats = ['*/*', :html, :turbo_stream]
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 

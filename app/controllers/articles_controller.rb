@@ -2,23 +2,27 @@ class ArticlesController < ApplicationController
   ##before_action :require_user, only: [:index, :show]
   before_action :require_user, only: [:new, :create]
   before_action :require_owner, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!
 
   def index
-    @pagy, @articles = pagy(Article.order(:created_at => :desc), items: 3)
-    @article = Article.new
+    @articles = Article.order(:created_at => :desc)
+    @pagy, @articles = pagy(@articles, items: 3)
   end
 
   def show
     @article = Article.find(params[:id])
   end
 
+  def new
+    @article = Article.new
+  end
+
   def create
-    @article = current_user.articles.build(article_params)
+    @article = current_user.articles.create(article_params)
+
     if @article.save
       redirect_to @article
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -49,9 +53,10 @@ class ArticlesController < ApplicationController
       redirect_to root_path, alert: "You can only edit or delete your own articles."
     end
   end
+
   
   private
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :user_id)
     end
 end
