@@ -53,9 +53,10 @@ class ArticlesController < ApplicationController
       redirect_to root_path, alert: "You can only edit or delete your own articles."
     end
   end
+
   
   private
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :user_id)
     end
 end

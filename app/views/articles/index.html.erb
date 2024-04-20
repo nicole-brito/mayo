@@ -10,7 +10,9 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if current_user %>
-            <%= button_to "Log out", logout_path, method: "delete", class: 'button is-primary' %>
+            <%= link_to "Edit Profile", edit_user_registration_path, class: 'button is-primary' %>
+
+            <%= button_to "Log out", destroy_user_session_path, method: "delete", class: 'button is-primary' %>
           <% else %>
             <%= link_to "Login", 'login', class: 'button is-primary' %>
           <% end %>
