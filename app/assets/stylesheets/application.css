@@ -20,17 +20,6 @@ body {
 
 }
 
-.card a {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 700;
-    color: #302186;
-    text-decoration: none;
-}
-
-.card a:hover {
-    color: #4A3FC7;
-}
 
 .navbar {
     display: flex;

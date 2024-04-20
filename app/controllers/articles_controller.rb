@@ -2,27 +2,23 @@ class ArticlesController < ApplicationController
   ##before_action :require_user, only: [:index, :show]
   before_action :require_user, only: [:new, :create]
   before_action :require_owner, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
-    @articles = Article.order(:created_at => :desc)
-    @pagy, @articles = pagy(Article.all, items: 3)
+    @pagy, @articles = pagy(Article.order(:created_at => :desc), items: 3)
+    @article = Article.new
   end
 
   def show
     @article = Article.find(params[:id])
   end
 
-  def new
-    @article = Article.new
-  end
-
   def create
-    @article = current_user.articles.create(article_params)
-
+    @article = current_user.articles.build(article_params)
     if @article.save
       redirect_to @article
     else
-      render :new
+      render 'new'
     end
   end
 

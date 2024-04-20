@@ -46,7 +46,7 @@ gem 'bootsnap', require: false
 
 gem 'pagy', '~> 8.2'
 
-gem 'bulma-rails'
+gem "devise"
 
 
 group :development do
@@ -54,15 +54,9 @@ group :development do
   gem 'web-console'
   gem 'ffaker'
 
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
 end

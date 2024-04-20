@@ -1,31 +1,4 @@
-<nav class="navbar	" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="<%= root_path %>">
-      Home
-    </a>
-  </div>
-
-  <div class="navbar-menu" style="display: flex; justify-content: center; flex-grow: 1;">
-    <% if current_user %>
-      <p class="navbar-item as-text-primary-dark subtitle">Hello, <%= current_user.first_name %>!</p>
-    <% else %>
-      <p class="navbar-item subtitle is-5">Hello!</p>
-    <% end %>
-  </div>
-
-  <div class="navbar-end">
-    <div class="navbar-item">
-      <div class="buttons">
-        <% if current_user %>
-          <%= button_to "Log out", logout_path, method: "delete", class: 'button is-primary' %>
-        <% else %>
-          <%= link_to "Login", 'login', class: 'button is-primary' %>
-          <%= link_to "Sign up", 'signup', class: 'button is-secundary' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</nav>
+<%= render "shared/nav" %>
 
 <div class="is-flex">
   <button class="card js-modal-trigger" data-target="modal-js-example">
@@ -40,10 +13,10 @@
 
 <%= link_to "New Article", new_article_path %>
 
+
 <h1>Articles</h1>
 
 <h2>Our blog has <%= Article.count %> articles and counting!</h2>
-
 
 <% @articles.each do |article| %>
   <ul class="card">
@@ -57,7 +30,7 @@
   </ul>
 <% end %>
 
-<%== pagy_nav(@pagy, ) %>
+<%== pagy_nav(@pagy,) %>
 
 <div id="flash-notification"></div>
 <%= turbo_frame_tag "classic_view_table" do %>
@@ -88,7 +61,7 @@
         <p class="modal-card-title">Add new post</p>
       </header>
       <section class="modal-card-body">
-        <%= form_with model: @article do |form| %>
+        <%= form_with model: @article, url: '/', method: :post do |form| %>
           <div class="field">
             <label class="label">Title</label>
             <div class="control has-icons-left">

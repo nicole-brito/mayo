@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   root "articles#index"
+
+  post '/' => 'articles#create'
 
   resources :articles do
     resources :comments
   end
 
-  get 'signup', to: 'users#new' 
-  resources :users 
+  devise_for :users, controllers: { registrations: 'registrations' }
 
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy' 
 
 
 end
