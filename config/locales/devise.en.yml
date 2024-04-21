@@ -63,3 +63,16 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  articles:
+    messages:
+      not_owner: "You can only edit or delete your own articles."
+
+  views:
+    shared:
+      nav:
+        home: 'Início'
+        hello: 'Olá'
+        user: 'usuário'
+        log_out: 'Sair'
+        login: 'Entrar'
+        sign_up: 'Cadastrar'

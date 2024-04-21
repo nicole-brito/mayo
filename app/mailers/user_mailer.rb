@@ -3,15 +3,15 @@ class UserMailer
     Mail.deliver do
       to      user.email
       from    'nicolem.britto@gmail.com'
-      subject 'Password Reset Instructions'
+      subject I18n.t('user_mailer.password_reset.subject')
 
       text_part do
-        body 'Here are your password reset instructions...'
+        body I18n.t('user_mailer.password_reset.text_body')
       end
 
       html_part do
         content_type 'text/html; charset=UTF-8'
-        body '<p>Here are your password reset instructions...</p>'
+        body "<p>#{I18n.t('user_mailer.password_reset.html_body')}</p>"
       end
     end
   end

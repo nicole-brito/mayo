@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DeveloperToolsToolWindowSettingsV1" lastSelectedContentNodeId="base64-encoder-decoder">
+    <developerToolsConfigurations>
+      <developerToolConfiguration developerToolId="base64-encoder-decoder" id="7a6ee946-6263-465d-9a19-ccb81d22f525" name="Workbench">
+        <properties>
+          <property key="liveConversion" type="CONFIGURATION" value="kotlin.Boolean|false" />
+          <property key="sourceText" type="INPUT" value="kotlin.String|def new&#10;    @article = current_user.articles.build&#10;  end&#10;&#10;  def create&#10;    @article = current_user.articles.build(article_params)&#10;    if @article.save&#10;      flash[:notice] = &quot;Article was saved successfully.&quot;&#10;      redirect_to @article&#10;    else&#10;      flash.now[:alert] = &quot;Error saving article.&quot;&#10;      render :new&#10;    end&#10;  end&#10;&#10;  private&#10;&#10;&#10;end" />
+        </properties>
+      </developerToolConfiguration>
+    </developerToolsConfigurations>
+  </component>
+</project>

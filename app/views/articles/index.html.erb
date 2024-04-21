@@ -1,28 +1,6 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="<%= root_path %>">
-      Home
-    </a>
-  </div>
+<%= render 'shared/nav' %>
 
-  <div class="navbar-menu">
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <% if current_user %>
-            <%= link_to "Edit Profile", edit_user_registration_path, class: 'button is-primary' %>
-
-            <%= button_to "Log out", destroy_user_session_path, method: "delete", class: 'button is-primary' %>
-          <% else %>
-            <%= link_to "Login", 'login', class: 'button is-primary' %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-
-
+<h3><%= t("nav.hello") %></h3>
 
 <%= link_to "New Article", new_article_path %>
 
@@ -38,9 +16,12 @@
       <p><%= article.body.split("\n").first %></p>
       <p><%= article.user.first_name %> <%= article.user.last_name %></p>
       <p><%= article.created_at.strftime("%B %d, %Y") %></p>
+      <% article.tag_list.each do |tag| %>
+        <span class="tag is-<%= random_bulma_color %>"><%= tag %></span>
+      <% end %>
     </li>
   </ul>
-
 <% end %>
+
 
 <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
