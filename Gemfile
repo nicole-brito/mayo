@@ -48,6 +48,7 @@ gem 'pagy', '~> 8.2'
 
 gem 'devise'
 
+gem 'i18n-tasks', '~> 1.0.13'
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -74,3 +75,7 @@ group :development, :test do
 end
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem 'acts-as-taggable-on'
+
+gem 'dotenv-rails'

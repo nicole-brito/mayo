@@ -1,28 +1,24 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="<%= root_path %>">
-      Home
-    </a>
+    <a class="button is-success is-light" href="<%= root_path %>"><%= t('views.shared.nav.home') %></a>
   </div>
 
   <div class="navbar-menu" style="display: flex; justify-content: center; flex-grow: 1;">
     <% if user_signed_in? %>
-      <p class="navbar-item as-text-primary-dark subtitle">Hello, <%= current_user.first_name %>!</p>
+      <p class=""><%= t('views.shared.nav.hello') %>, <%= current_user.first_name %>!</p>
     <% else %>
-      <p class="navbar-item subtitle is-5">Hello, user!</p>
+      <p class=""><%= t('views.shared.nav.hello') %>, <%= t('views.shared.nav.user') %>!</p>
     <% end %>
   </div>
 
   <div class="navbar-end">
-    <div class="navbar-item">
-      <div class="buttons">
-        <% if user_signed_in? %>
-          <%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'button is-primary' %>
-        <% else %>
-          <%= link_to "Login", new_user_session_path, class: 'button is-primary' %>
-          <%= link_to "Sign up", new_user_registration_path , class: 'button is-light' %>
-        <% end %>
-      </div>
+    <div class="buttons">
+      <% if user_signed_in? %>
+        <%= button_to t('views.shared.nav.log_out'), destroy_user_session_path, method: :delete, class: 'button is-primary' %>
+      <% else %>
+        <%= link_to ('views.shared.nav.login'), new_user_session_path, class: 'button is-primary' %>
+        <%= link_to t('views.shared.nav.sign_up'), new_user_registration_path, class: 'button is-light' %>
+      <% end %>
     </div>
   </div>
 </nav>

@@ -1,0 +1,87 @@
+---
+pt-BR:
+  active_record:
+    errors:
+      models:
+        article:
+          attributes:
+            content:
+              blank: deve ser preenchido
+              too_short: é muito curto (mínimo é 10 caracteres)
+            title:
+              blank: deve ser preenchido
+        messages:
+          invalid: inválido
+          invalid_email: email inválido
+          invalid_password: senha inválida
+          invalid_token: token inválido
+          not_found: não encontrado
+        user:
+          attributes:
+            email:
+              blank: deve ser preenchido
+              taken: já está em uso
+            password:
+              blank: deve ser preenchido
+              too_short: é muito curto (mínimo é 6 caracteres)
+            password_confirmation:
+              blank: deve ser preenchido
+              confirmation: não coincide com a senha
+  articles:
+    create:
+      failure: Houve um erro ao criar o artigo.
+      success: Artigo criado com sucesso.
+    destroy:
+      success: Artigo excluído com sucesso.
+    messages:
+      not_owner: Você só pode editar ou deletar seus próprios artigos
+    require_owner:
+      failure: Você só pode editar ou excluir seus próprios artigos.
+    tags:
+      animals: Animais
+      art: Arte
+      beauty: Beleza
+      books: Livros
+      culture: Cultura
+      diy: Faça você mesmo
+      family: Família
+      fashion: Moda
+      fitness: Fitness
+      food: Comida
+      friends: Amigos
+      games: Jogos
+      health: Saúde
+      history: História
+      humor: Humor
+      inspiration: Inspiração
+      love: Amor
+      movies: Filmes
+      music: Música
+      nature: Natureza
+      party: Festa
+      photography: Fotografia
+      politics: Política
+      science: Ciência
+      space: Espaço
+      sports: Esportes
+      studies: Estudos
+      technology: Tecnologia
+      travel: Viagem
+      work: Trabalho
+    update:
+      failure: Houve um erro ao atualizar o artigo.
+      success: Artigo atualizado com sucesso.
+    user_mailer:
+      password_reset:
+        html_body: Aqui estão suas instruções para redefinição de senha...
+        subject: Instruções para redefinição de senha
+        text_body: Aqui estão suas instruções para redefinição de senha...
+  footer:
+    made_with_love: "Feito com 💖 por"
+  nav:
+    hello: Olá
+    home: Início
+    log_out: Sair
+    login: Entrar
+    sign_up: Cadastrar
+    user: usuário
