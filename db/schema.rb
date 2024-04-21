@@ -43,6 +43,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_20_163921) do
     t.datetime "remember_created_at"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
+    t.string "password_confirmation"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "articles", "users"
