@@ -5,8 +5,12 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.order(:created_at => :desc)
+    @article = Article.new
     @pagy, @articles = pagy(@articles, items: 3)
-    set_tags
+    @tags = Article.tag_counts_on(:tags)
+    if params[:tag_name]
+      @articles = @articles.tagged_with(params[:tag_name])
+    end
   end
 
   def show
@@ -15,13 +19,14 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @comment = Comment.new(article_id: params[:article_id])
     set_tags
     @article.save
   end
 
   def create
     @article = Article.new(article_params)
-    @article.tag_list = params[:article][:tag_list].split(',')
+    # @article.tag_list = params[:article][:tag_list].split(',')
     @article.user = current_user
 
     if @article.save
@@ -63,41 +68,29 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, :user_id, :tag_list => [])
+    params.require(:article).permit(:title, :body, :user_id, :tag_list)
   end
 
   def set_tags
-    tags_data = [{ "value": "Love", "code": "❤️" },
-                 { "value": "Family", "code": "👨‍👩‍👧‍👦" },
-                 { "value": "Friends", "code": "👫" },
-                 { "value": "Food", "code": "🍔" },
-                 { "value": "Travel", "code": "✈️" },
-                 { "value": "Photography", "code": "📷" },
-                 { "value": "Music", "code": "🎵" },
-                 { "value": "Movies", "code": "🎬" },
-                 { "value": "Books", "code": "📚" },
-                 { "value": "Sports", "code": "⚽" },
-                 { "value": "Fitness", "code": "💪" },
-                 { "value": "Technology", "code": "💻" },
-                 { "value": "Fashion", "code": "👗" },
-                 { "value": "Art", "code": "🎨" },
-                 { "value": "Nature", "code": "🌳" },
-                 { "value": "Animals", "code": "🐶" },
-                 { "value": "Games", "code": "🎮" },
-                 { "value": "Party", "code": "🎉" },
-                 { "value": "Work", "code": "💼" },
-                 { "value": "Studies", "code": "🎓" },
-                 { "value": "Health", "code": "🍎" },
-                 { "value": "Politics", "code": "🗳️" },
-                 { "value": "Science", "code": "🔬" },
-                 { "value": "Space", "code": "🚀" },
-                 { "value": "History", "code": "🏺" },
-                 { "value": "Culture", "code": "🌎" },
-                 { "value": "Humor", "code": "😂" },
-                 { "value": "Inspiration", "code": "💡" },
-                 { "value": "DIY", "code": "🔨" },
-                 { "value": "Beauty", "code": "💄" }
-    ]
-    @tags = tags_data.map { |tag| "#{tag[:value]} #{tag[:code]}" }
+    tags_data = ["Love ❤️",
+                 "Family 👨‍👩‍👧‍👦",
+                 "Friends 👫",
+                 "Food 🍔",
+                 "Travel ✈️",
+                 "Photography 📷",
+                 "Music 🎵",
+                 "Movies 🎬",
+                 "Books 📚",
+                 "Sports ⚽",
+                 "Fitness 💪",
+                 "Technology 💻",
+                 "Fashion 👗",
+                 "Art 🎨",
+                 "Nature 🌳",
+                 "Animals 🐶",
+                 "Games 🎮",
+                 "Party 🎉",
+]
+    @tags = tags_data
   end
 end

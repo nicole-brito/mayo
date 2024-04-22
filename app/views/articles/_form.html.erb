@@ -1,45 +1,31 @@
-<div class="container.is-max-widescreen">
-
-
-  <section class="section is-medium">
-
-
-    <%= form_with model: article do |form| %>
-      <div class="card">
-        <div class="field">
-          <label class="label">Title</label>
-          <div class="control has-icons-left">
-            <%= form.text_field :title, class: "input" %>
-            <% article.errors.full_messages_for(:title).each do |message| %>
-              <div><%= message %></div>
-            <% end %>
-            <span class="icon is-small is-left">
+<%= form_with model: article do |form| %>
+  <div class="field">
+    <label class="label">t('.title')</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :title, class: "input" %>
+      <% article.errors.full_messages_for(:title).each do |message| %>
+        <div><%= t('.message_title') %></div>
+      <% end %>
+      <span class="icon is-small is-left">
         <i class="fas fa-heading"></i>
       </span>
-          </div>
-          <br>
-
-          <%= form.label :tag_list, "Tags" %>
-          <%= form.text_field :tag_list, value: @article.tag_list.to_s, placeholder: 'Try to add tags from the list', class: 'countries', data: { tags: @tags.to_json } %>
-
-
-
-          <div class="field">
-            <label class="label">Body</label>
-            <div class="control has-icons-left">
-              <%= form.text_area :body, class: "textarea" %><br>
-              <% article.errors.full_messages_for(:body).each do |message| %>
-                <div><%= message %></div>
-              <% end %>
-            </div>
-
-            <div class="field">
-              <%= form.submit "Post", class: "button is-primary" %>
-            </div>
-          </div>
-    <% end %>
     </div>
+    <br>
+
+    <%= form.label :tag_list, "Tags" %>
+    <%= form.text_field :tag_list, value: @article.tag_list.to_s, placeholder: 'Try to add tags from the list', data: { tags: @tags.to_json } %>
+
+
+
+    <div class="field">
+      <label class="label">Body</label>
+      <div class="control has-icons-left">
+        <%= form.rich_text_area :body, class: "textarea" %><br>
+      </div>
+
+      <div class="field">
+        <%= form.submit value: t('articles.index.new_post'), class: "button is-primary" %>
+      </div>
     </div>
-  </section>
+<% end %>
 </div>
-

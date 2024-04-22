@@ -4,3 +4,4 @@ User.create(
   email: "inactive@user.com",
   password: "inactiveuser"
 )
+

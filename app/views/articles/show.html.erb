@@ -1,20 +1,42 @@
-<h1><%= @article.title %></h1>
+<div class="">
+  <div class="card">
+    <div class="card-content">
+      <h1 class="title"><%= @article.title %></h1>
+      <p><%= @article.body %></p>
+      <% if current_user == @article.user %>
+        <ul class="is-flex m-2 is-justify-content-center	">
+          <li><%= link_to t('edit'), edit_article_path(@article), class: 'primary-button m-4 ' %></li>
+          <li><%= link_to t('delete'), article_path(@article), class: 'primary-button', data: {
+            turbo_method: :delete,
+            turbo_confirm: t('are_you_sure')
+          } %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<p><%= @article.body %></p>
 
-<% if current_user == @article.user %>
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article), class: 'primary-button' %></li>
-  <li><%= link_to "Destroy", article_path(@article), class: 'primary-button', data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
-<% end %>
+  <div class="card">
+    <h1 class="title is-4"><%= t('.add_a_comment') %></h1>
+    <%= render 'comments/form' %>
+  </div>
 
 
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<div class="card">
+  <h1 class="title is-4"><%= t('.comments') %></h1>
+  <% @article.comments.each do |comment| %>
+<article class="message is-success">
+    <div class="message-header">
+      <p>
+        <%= comment.commenter %>
+      </p>>
+    </div>
+    <div class="message-body">
+      <p>
+        <%= comment.body %>
+      </p>
+    </div>
+    </article>
+  <% end %>
+  </div>

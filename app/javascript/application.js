@@ -33,19 +33,17 @@ var tagify = new Tagify(inputElement, {
     enforceWhitelist: true,
     whitelist: tags,
     dropdown: {
-        enabled: 1, // suggest tags after a single character input
-        classname: 'extra-properties' // custom class for the suggestions dropdown
-    } // map tags' values to this property name, so this property will be the actual value and not the printed value on the screen
+        enabled: 1,
+        classname: 'extra-properties'
+    }
 })
 
 tagify.on('click', function (e) {
     updateOriginalInput();
-    //console.log(e.detail);
 });
 
 tagify.on('remove', function (e) {
     updateOriginalInput();
-    //console.log(e.detail);
 });
 
 tagify.on('add', function (e) {
@@ -59,8 +57,10 @@ var tagsToAdd = tagify.whitelist.slice(0, 4)
 tagify.addTags(tagsToAdd)
 
 function updateOriginalInput() {
-    var tags = tagify.value.map(function(tagData) {
-        return tagData.value;
+    var tags = tagify.map(function (tagData) {
+        return tagData;
     });
-    tagify.DOM.originalInput.value = tags.join(',');
 }
+
+import "trix"
+import "@rails/actiontext"
