@@ -24,7 +24,7 @@ O teste é diviido em três "níveis", dos quais eu optei por seguir como se fos
 
 **Nível 2:**
 - [ ]  Se conseguir, escrever testes automatizados simples
-- [ ]  Se conseguir, implemente internacionalização
+- [x]  Se conseguir, implemente internacionalização
 - [x]  Se conseguir, adicione tags aos seus post, assim como filtros para utilizar as tags cadastradas. As tags deverão ser implementadas como uma nova tabela no seu modelo, associada aos posts
 
 **Nível 3:**
