@@ -6,5 +6,4 @@ module ArticlesHelper
     colors.sample
   end
 
-
 end

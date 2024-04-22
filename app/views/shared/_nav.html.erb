@@ -1,0 +1,24 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="button is-success is-light" href="<%= root_path %>"><%= t('.home_link') %></a>
+  </div>
+
+  <div class="navbar-menu" style="display: flex; justify-content: center; flex-grow: 1;">
+    <% if user_signed_in? %>
+       <p class=""><%= t('.hello') %> <%= current_user.first_name %>!</p>
+    <% else %>
+      <p class=""><%= t('.hello') %> <%= t('.user') %>!</p>
+    <% end %>
+  </div>
+
+  <div class="navbar-end">
+    <div class="buttons">
+      <% if user_signed_in? %>
+        <%= button_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'button is-primary' %>
+      <% else %>
+        <%= link_to t('.login'), new_user_session_path, class: 'button is-primary' %>
+        <%= link_to t('.sign_up'), new_user_registration_path, class: 'button is-light' %>
+      <% end %>
+    </div>
+  </div>
+</nav>

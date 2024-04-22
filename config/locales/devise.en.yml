@@ -6,6 +6,8 @@ en:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      new:
+        resend_confirmation_instructions: "Resend confirmation instructions"
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
@@ -19,6 +21,8 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
+        greeting: "Hello,"
+        action: "Confirmation"
       reset_password_instructions:
         subject: "Reset password instructions"
       unlock_instructions:
@@ -45,14 +49,28 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
+      new:
+        sign_up: "Sign Up"
+        l_name: "Last Name"
+        f_name: "First Name"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+      user:
+        signed_in: "You're already signed in"
+      new:
+        sign_in: "Sign In"
+        sign_up: "Sign Up"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+    shared:
+      links:
+        sign_in: "Login"
+        sign_up: "Sign Up"
+      minimum_password_length: "Your password must be at least 8 characters long, a number, and an uppercase letter"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"
@@ -65,14 +83,61 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
   articles:
     messages:
-      not_owner: "You can only edit or delete your own articles."
-
+      not_owner: "You can only edit or delete your own posts."
+    index:
+      removefilter: "Remove Filters"
+      new_post: "Create New Post"
+      date_create: "Created at: "
+    form:
+      message_title: "Title can't be blank"
+      message_error: "Your post must be a minimum of 10 characters long"
+    show:
+      comments: "Comments"
+      add_a_comment: "Add a Comment"
   views:
     shared:
       nav:
-        home: 'Início'
-        hello: 'Olá'
-        user: 'usuário'
-        log_out: 'Sair'
-        login: 'Entrar'
-        sign_up: 'Cadastrar'
+        hello: "Olá"
+        user: "usuário"
+        log_out: "Sair"
+        login: "Entrar"
+        sign_up: "Cadastrar"
+        home_link: "Home"
+  shared:
+    nav:
+      home_link: "Home"
+      sign_up: "Sign Up"
+      hello: "Hello"
+      user: "User"
+      log_out: "Logout"
+      login: "Login"
+    time:
+      formats:
+        long: "%B %d, %Y, %H:%M"
+  user_mailer:
+    password_reset:
+      html_body: "Here is the link to create a new password."
+      text_body: "Here is the link to create a new password."
+      subject: "Password Reset"
+  activerecord:
+    time:
+      formats:
+        long: "%B %d %Y, %H:%M"
+  are_you_sure: "Are You Sure?"
+  edit: "Edit"
+  destroy: "Delete"
+  delete: "Delete"
+  comments:
+    form:
+      comment_as: "Comment as"
+      anom: "Anonymous User"
+      comment: "Comment"
+  users:
+    sessions:
+      new:
+        sign_in: "Sign In"
+    shared:
+      links:
+        confir_re: "Didn't receive confirmation instructions?"
+  forgot: "Forgot your password?"
+  sgnup: "Sign up"

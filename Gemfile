@@ -42,11 +42,13 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 gem 'bootsnap', require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 gem 'pagy', '~> 8.2'
 
 gem 'devise'
+
+gem 'devise-i18n'
 
 gem 'i18n-tasks', '~> 1.0.13'
 
@@ -79,3 +81,5 @@ gem "dockerfile-rails", ">= 1.6", :group => :development
 gem 'acts-as-taggable-on'
 
 gem 'dotenv-rails'
+
+gem 'mobility', '~> 1.3.0.rc3'
