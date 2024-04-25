@@ -2,8 +2,6 @@
 
 # Ignore git directory.
 /.git/
-/.gitignore
-/.dockerignore
 
 # Ignore bundler config.
 /.bundle
