@@ -1,27 +1,53 @@
-<%= render 'shared/nav' %>
+<div class="container">
+  <div class="columns is-multiline is-centered">
+    <% @tags.each do |tag| %>
+      <div class="column is-narrow">
+        <%= button_to tag, tag_path(tag_name: tag.name), method: :get, class: "button is-#{random_bulma_color} is-small m-2" %>
+      </div>
+    <% end %>
+    <div class="column is-narrow">
+      <%= button_to t('.removefilter'), articles_path, method: :get, class: 'button is-small ghost' %>
+    </div>
+  </div>
+</div>
 
-<h3><%= t("nav.hello") %></h3>
-
-<%= link_to "New Article", new_article_path %>
-
-<h1>Articles</h1>
-
-<h2>Our blog has <%= Article.count %> articles and counting!</h2>
-
+<div class="is-flex">
+  <%= link_to new_article_path, class: "card" do %>
+    <div class="card-content has-text-centered">
+      <span class="icon is-large"><i class="fas fa-plus fa-3x"></i></span>
+      <p class="title is-4"><%= t('.new_post') %></p>
+    </div>
+  <% end %>
+</div>
 
 <% @articles.each do |article| %>
   <ul class="card">
     <li>
       <%= link_to article.title, article %>
-      <p><%= article.body.split("\n").first %></p>
+      <p><%= article.body%></p>
       <p><%= article.user.first_name %> <%= article.user.last_name %></p>
-      <p><%= article.created_at.strftime("%B %d, %Y") %></p>
+      <p><%= t('.date_create') + " " + l(article.created_at, format: t('activerecord.time.formats.long')) %></p>
       <% article.tag_list.each do |tag| %>
-        <span class="tag is-<%= random_bulma_color %>"><%= tag %></span>
+        <%= content_tag :span, t("articles.tags.#{tag}"), class: "tag is-#{random_bulma_color}", value: article.tag_list.to_s, data: { tags: @tags.to_json } %>
       <% end %>
     </li>
   </ul>
 <% end %>
 
-
-<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+  <ul class="pagination-list">
+    <% @pagy.series.each do |item| %>
+      <% if item.is_a?(Integer) %>
+        <li class="pagination-link">
+          <%= link_to item, page: item, class: "pagination-link #{'is-current' if item == @pagy.page}" %>
+        </li>
+      <% elsif item.is_a?(String) %>
+        <li class="pagination-ellipsis">
+          <span class="pagination-ellipsis">&hellip;</span>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</nav>
+</div>
+</div>

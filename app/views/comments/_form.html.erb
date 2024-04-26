@@ -1,30 +1,19 @@
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
-    <p>
-        <%= form.label :commenter %><br>
-        <%= form.text_field :commenter %>
-    </p>
-    <p>
-        <%= form.label :body %><br>
-        <%= form.text_area :body %>
-    </p>
-
-    <%= form.submit %>
-<% end %>
-
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
   <p>
     <% if current_user %>
       <%= form.hidden_field :commenter, value: "#{current_user.first_name} #{current_user.last_name}" %>
       <strong>Comment as <%= "#{current_user.first_name} #{current_user.last_name}" %></strong>
     <% else %>
-      <%= form.hidden_field :commenter, value: "Anonymous User" %>
-      <strong>Comment as <%= "Anonymous User" %></strong>
+      <%= form.label :commenter %><br>
+      <%= form.text_field :commenter %>
     <% end %>
   </p>
   <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.rich_text_area :body %>
+  </p></br>
+  <p>
+    <%= form.submit class: "button is-success" %>
   </p>
-
-  <%= form.submit %>
 <% end %>
+
+

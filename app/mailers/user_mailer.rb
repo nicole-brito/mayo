@@ -16,3 +16,5 @@ class UserMailer
     end
   end
 end
+
+mail(to: user.email, subject: default_i18n_subject(user: user.name))

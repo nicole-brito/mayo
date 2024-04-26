@@ -4,6 +4,8 @@ pt-BR:
       confirmed: "Sua conta foi confirmada com sucesso."
       send_instructions: "Você receberá um e-mail para confirmar sua conta em alguns minutos."
       send_paranoid_instructions: "Se o seu endereço de e-mail existir na nossa base de dados, você receberá um e-mail para confirmar sua conta em alguns minutos."
+      new:
+        resend_confirmation_instructions: "Reenviar instruções para confirmação"
     failure:
       already_authenticated: "Você já está logado."
       inactive: "Sua conta ainda não foi ativada."
@@ -17,6 +19,8 @@ pt-BR:
     mailer:
       confirmation_instructions:
         subject: "Instruções de confirmação"
+        greeting: "Oi,"
+        action: "Confirmar"
       reset_password_instructions:
         subject: "Instruções para redefinir sua senha"
       unlock_instructions:
@@ -43,26 +47,110 @@ pt-BR:
       update_needs_confirmation: "Você atualiou a sua conta com sucesso, mas precisamos verificar o seu novo endereço de e-mail. Por favor, acesse o seu e-mail e siga as instruções de confirmação para confirmar o seu novo endereço de e-mail."
       updated: "Sua conta foi atualizada com sucesso."
       updated_but_not_signed_in: "Sua conta foi atualizada com sucesso, mas como a sua senha foi redefinida, você precisa logar novamente."
+      new:
+        sign_in: "Entrar"
+        sign_up: "Cadastrar"
+        l_name: "Sobrenome"
+        f_name: "Nome"
     sessions:
       signed_in: "Logado com sucesso."
       signed_out: "Até breve!."
       already_signed_out: "Até breve!"
+      user:
+        signed_in: "Você já está na sua conta"
+      new:
+        sign_in: "Entrar"
+        sign_up: "Cadastrar"
     unlocks:
       send_instructions: "Você receberá um e-mail com instruções sobre como desbloquear a sua conta em alguns minutos."
       send_paranoid_instructions: "Se o seu e-mail existir em nossa base de dados, você receberá um e-mail com instruções sobre como desbloquear a sua conta em alguns minutos."
       unlocked: "Conta desbloqueada com sucesso. Por favor, logue para continuar."
-  errors:
-    messages:
-      already_confirmed: "já foi confirmado, por favor logue para continuar"
-      confirmation_period_expired: "deve ser confirmada dentro de %{period}, por favor solicite novamente"
-      expired: "expirou, por favor solicite um novo"
-      not_found: "não encontrado"
-      not_locked: "não estava bloqueado"
-      not_saved:
-        one: "Não foi possível salvar este(a) %{resource}:"
-        other: "Não foi possível salvar este(a) %{resource}:"
-  views:
+    errors:
+      messages:
+        already_confirmed: "já foi confirmado, por favor logue para continuar"
+        confirmation_period_expired: "deve ser confirmada dentro de %{period}, por favor solicite novamente"
+        expired: "expirou, por favor solicite um novo"
+        not_found: "não encontrado"
+        not_locked: "não estava bloqueado"
+        not_saved:
+          one: "Não foi possível salvar este(a) %{resource}:"
+          other: "Não foi possível salvar este(a) %{resource}:"
+    views:
+      shared:
+        nav:
+          log_out: "Sair"
+          sign_up: "Criar Conta"
+          home: "Início"
+          user: "Usuário"
+          home_link: "Início"
+    articles:
+      index:
+        removefilter: "Limpar Filtros"
+        new_post: "Criar Novo Post"
+        date_create: "Data de Criação: "
+      form:
+        message_title: "O título não pode estar vazio"
+        message_error: "Seu post deve ter pelo menos 10 caracteres"
+      tags:
+        Love: "Amor"
+      messages:
+        not_owner: "Você só pode editar seus próprios posts"
     shared:
       nav:
-        log_out: ""Sair""
-        sign_up: ""Criar Conta""
+        home_link: "Início"
+        sign_up: "Cadastrar"
+        hello: "Oi"
+        user: "Usuário"
+        log_out: "Sair"
+        login: "Entrar"
+      time:
+        formats:
+          long: "%d de %B de %Y, %H:%M"
+      sessions:
+        user:
+          signed_out: "Você saiu com sucesso."
+        signed_out: "Você saiu com sucesso."
+      links:
+        sign_in: "Já tenho uma conta"
+      minimum_password_length: "Sua senha precisa ter pelo 8 caracteres, um número e uma letra maiúscula"
+    user_mailer:
+      password_reset:
+        html_body: "Aqui está o link para a criação de uma nova senha."
+        text_body: "Aqui está o link para a criação de uma nova senha."
+        subject: "Recupere sua senha"
+  articles:
+    index:
+      removefilter: "Limpar Filtros"
+      new_post: "Criar Novo Post"
+      date_create: "Data de Criação:"
+    show:
+      comments: "Comentários"
+      add_a_comment: "Adicione um Comentário"
+  are_you_sure: "Quer mesmo excluir seu post?"
+  edit: "Editar"
+  destroy: ""
+  delete: "Excluir"
+  comments:
+    form:
+      comment_as: "Comentar como"
+      anom: "Usuário Anônimo"
+      comment: "Comentar"
+  shared:
+    nav:
+      hello: "Oi,"
+      user: "Anônimo"
+      home_link: "Início"
+      log_out: "Sair"
+      login: "Entrar"
+      sign_up: "Criar Conta"
+  footer:
+    made_with_love: "Feito com 💖 por"
+  users:
+    sessions:
+      new:
+        sign_in: "Entrar"
+    shared:
+      links:
+        confir_re: "Não recebeu as instruções?"
+  forgot: "Esqueceu sua senha?"
+  sgnup: "Criar nova conta"

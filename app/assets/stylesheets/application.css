@@ -1,5 +1,7 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
- @import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
+@import "actiontext.css";
+@import "trix.css";
 
 body {
     background-color: #EEEBFF;
@@ -8,7 +10,7 @@ body {
 }
 
 
-.card { 
+.card {
     border-radius: 16px;
     background-color: #fff;
     margin: 16px auto; /* Center the card horizontally */
@@ -60,29 +62,7 @@ body {
     text-decoration: none;
 }
 
-.tagify__dropdown.extra-properties .tagify__dropdown__item > img{
-    display: inline-block;
-    vertical-align: middle;
-    height: 20px;
-    transform: scale(.75);
-    margin-right: 5px;
-    border-radius: 2px;
-    transition: .12s ease-out;
-}
-
-.tagify__dropdown.extra-properties .tagify__dropdown__item--active > img,
-.tagify__dropdown.extra-properties .tagify__dropdown__item:hover > img{
-    transform: none;
-    margin-right: 12px;
-}
-
-.tagify.countries .tagify__input{ min-width:175px; }
-
-.tagify.countries tag{ white-space:nowrap; }
-.tagify.countries tag img{
-    display: inline-block;
-    height: 16px;
-    margin-right: 3px;
-    border-radius: 4px;
-    pointer-events: none;
+.notification {
+    width: 50%;
+    margin: 0 auto;
 }
